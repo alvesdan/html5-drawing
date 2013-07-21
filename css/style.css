@@ -1,0 +1,45 @@
+* { margin:0; -webkit-user-select: none; }
+body { font-family: Arial, sans-serif; background: url(../img/bg.jpg); margin: 0; padding: 0; overflow: hidden; }
+canvas { cursor: crosshair; }
+
+#draw, #can { width: 975px; height: 588px; position: absolute; left: 24px; top: 23px; z-index: 20; }
+#can { background: #fff; }
+
+.tools { position: absolute; bottom: 20px; left: 24px; z-index: 1; }
+
+.colors { z-index: 10; margin: 0; padding: 0; display: inline; }
+.colors li { float: left; display: block; margin: 0 2px 0 0; color: #999; width: 65px; height: 35px; -webkit-box-shadow: 0px 1px 1px #333; text-align:center; line-height: 35px; }
+.colors li.color0 { background-color: #333333; }
+.colors li.color1 { background-color: #f36a22; }
+.colors li.color2 { background-color: #c11f37; }
+.colors li.color3 { background-color: #223d8a; }
+.colors li.color4 { background-color: #f8e000; }
+.colors li.color5 { background-color: #004236; }
+.colors li.color6 { background-color: #3c9cd6; }
+.colors li.color7 { background-color: #2acd2e; }
+.colors li.color8 { background-color: #ffffff; }
+.colors li.active { height: 20px; line-height: 20px; font-size: 10px; }
+
+.pencils { display: inline-block; margin: 0; padding: 0; }
+.pencils li { list-style: none; display: block; float: left; width: 30px; text-align: center; background: #ddd; height: 35px; margin: 0 2px 0 0; line-height: 35px; -webkit-box-shadow: 0px 1px 1px #333; color: #333; }
+.pencils li.active { background: #333; color: #fff; }
+
+.button { background: #ccc; color: #666; z-index: 20; padding: 8px 14px 9px 14px; -webkit-box-shadow: 0px 1px 1px #333; }
+
+.gallery { position: absolute; bottom: 24px; right: 100px;  }
+.save { position: absolute; bottom: 24px; right: 24px;  }
+.clear { position: absolute; bottom: 24px; right: 185px; background: #a7383e; color: #fff; }
+
+.share { display:none; position: absolute; width: 300px; height: 190px; left: 50%; margin-left: -150px; top: 30%; background: #ddd; padding: 20px; border: 5px solid #ccc; z-index: 30; text-align: center; font-size: 20px; color: #999; }
+.share .close { position: absolute; right: -10px; top: -10px; background: #a7383e; color: #fff; padding: 1px 5px; }
+.share a { display: inline-block; color: #333; margin: 10px 0; font-weight: bold; text-decoration: none; background: #fff; border: 1px solid #ccc; }
+
+/*
+.colors li,
+.pencils li,
+.button {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+*/
