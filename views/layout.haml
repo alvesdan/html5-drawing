@@ -1,0 +1,29 @@
+!!! 5
+%html
+  %head
+    %title HTML5 Drawing
+    %meta{ name: "viewport", content: "initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" }
+    %meta{ name: "apple-mobile-web-app-capable", content: "yes" }
+    %link{ rel: "stylesheet", href: "/stylesheets/bootstrap.min.css" }
+    %link{ rel: "stylesheet", href: "/stylesheets/application.css" }
+    %link{ rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/images/icon-ios-144x144.png" }
+    %link{ rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/images/icon-ios-114x114.png" }
+    %link{ rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/images/icon-ios-72x72.png" }
+    %link{ rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/images/icon-ios-57x57.png" }
+  %body
+    .wrapper
+      = yield
+    
+    .standalone-message.shadow
+      %h2 html 5 <strong>drawing</strong>
+      %p Add to your <strong>Home Screen</strong>
+    .overlay
+      .rotate-message.shadow
+        %img{ src: "/images/icon-rotate-ipad.png" }
+        %br
+        Please <strong>rotate</strong> you iPad
+        
+    
+    %script{ src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" }
+    %script{ src: "/javascripts/drawing.js" }
+    %script{ src: "/javascripts/application.js" }

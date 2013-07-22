@@ -1,0 +1,31 @@
+.canvas-wrapper.shadow
+  %canvas{ id: "canvas-drawing", width: 980, height: 600 }
+  
+%ul.buttons
+  %li
+    %a{ class: "save-image-button" } Save
+
+%ul.colors
+  %li{ class: "white", data: {color: "#ffffff"} }
+    Eraser
+  %li{ class: "blue", data: {color: "#66afec"} }
+    Blue
+  %li{ class: "red", data: {color: "#bb1d1d"} }
+    Red
+  %li{ class: "green active", data: {color: "#91c91d"} }
+    Green
+  %li{ class: "yellow", data: {color: "#ffbc00"} }
+    Yellow
+  %li{ class: "black", data: {color: "#333333"} }
+    Black
+    
+%ul.pencils
+  %li{ class: "small active", data: { size: 15} }
+    S
+  %li{ class: "medium", data: { size: 30} }
+    M
+  %li{ class: "big", data: { size: 50} }
+    L
+
+.icon-footer
+  html 5 <strong>drawing</strong>
