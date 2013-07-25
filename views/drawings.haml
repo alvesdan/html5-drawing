@@ -1,0 +1,14 @@
+.relative-buttons
+  %a{ href: "/" } &larr; Create your drawing
+
+%ul.drawings
+  - @drawings.each do |drawing|
+    %li
+      %img{ src: drawing.url(authenticated: false), width: 212, class: "img-polaroid" }
+      
+:javascript
+  $(function(){
+    $("body").css("overflow", "normal");
+    $(".overlay").remove();
+  });
+  

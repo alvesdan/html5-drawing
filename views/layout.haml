@@ -10,20 +10,20 @@
     %link{ rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/images/icon-ios-114x114.png" }
     %link{ rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/images/icon-ios-72x72.png" }
     %link{ rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/images/icon-ios-57x57.png" }
+    %script{ src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" }
+    %script{ src: "/javascripts/drawing.js" }
+    %script{ src: "/javascripts/application.js" }
   %body
-    .wrapper
-      = yield
+    = yield
     
     .standalone-message.shadow
       %h2 html 5 <strong>drawing</strong>
-      %p Add to your <strong>Home Screen</strong>
+      %p Add to your <strong>Home Screen</strong><br /> and start drawing
     .overlay
       .rotate-message.shadow
         %img{ src: "/images/icon-rotate-ipad.png" }
         %br
         Please <strong>rotate</strong> you iPad
-        
     
-    %script{ src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" }
-    %script{ src: "/javascripts/drawing.js" }
-    %script{ src: "/javascripts/application.js" }
+    .loading-overlay
+      Please wait, we are saving your drawing...

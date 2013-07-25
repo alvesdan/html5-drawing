@@ -8,8 +8,8 @@ class Drawing
     @context.fillRect(0, 0, 980, 600)
     @x = 0
     @y = 0
-    @x_offset = $("#canvas-drawing").offset().left
-    @y_offset = $("#canvas-drawing").offset().top
+    @x_offset = $("#canvas-drawing").offset().left + 20
+    @y_offset = $("#canvas-drawing").offset().top + 20
     @points = []
     @allow_drawing = false
     setInterval(@handle_interval, 30)
@@ -39,14 +39,17 @@ class Drawing
       $(".pencils li").removeClass("active")
       $(event.target).addClass("active")
     
-    #$(".clear-drawing").click (event) =>
-    #  @context.fillStyle = "rgba(255, 255, 255, 1)"
-    #  @context.fillRect(0, 0, 980, 600)
+    $(".clear-drawing").click (event) =>
+     @context.fillStyle = "rgba(255, 255, 255, 1)"
+     @context.fillRect(0, 0, 980, 600)
     
     $(".save-image-button").click (event) =>
       event.preventDefault()
       @save_image()
       false
+    
+    $(".drawings-gallery").click ->
+      window.location.href = "/drawings"
   
   handle_start: (event, element) ->
     @x = event.touches[0].clientX - @x_offset
@@ -84,23 +87,35 @@ class Drawing
     if (window.orientation == 0 || window.orientation == 180)
       $(".overlay").show()
       $(".wrapper").hide()
+      $("ul.colors").hide()
+      #$("ul.pencils").hide()
+      $("ul.buttons").hide()
     else
       $(".overlay").hide()
       $(".wrapper").show()
+      $("ul.colors").show()
+      #$("ul.pencils").show()
+      $("ul.buttons").show()
   
   save_image: ->
     image = @canvas.toDataURL()
+    $(".loading-overlay").css("display", "block")
     $.ajax
       url: "/save",
       type: "post",
       dataType: "json",
       data:
         image_data: image
+      success: (data, textStatus, jqXHR) ->
+        window.location.href = "/drawings"
+      error: (jqXHR, textStatus, errorThrown) ->
+        $(".loading-overlay").hide()
     false
       
     
 jQuery ->
-  drawing = new Drawing()
+  if ($(".canvas-wrapper").length)
+    drawing = new Drawing()
   if (!window.navigator.standalone)
     $("body").addClass("only-standalone")
     $(".wrapper").remove()

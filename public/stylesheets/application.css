@@ -26,6 +26,7 @@ body {
   height: 600px;
   margin: 20px auto 0;
   position: relative;
+  display: none;
 }
 
 .canvas-wrapper {
@@ -104,8 +105,8 @@ body {
 
 .colors {
   position: absolute;
-  left: 280px;
-  bottom: -128px;
+  left: 70px;
+  bottom: 0px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -141,48 +142,50 @@ body {
 
 .pencils {
   position: absolute;
-  left: 557px;
-  bottom: -90px;
+  left: 555px;
+  bottom: 45px;
   margin: 0;
   list-style: none;
   display: none;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  box-shadow: inset 0 0 3px rgba(0,0,0, 0.6), 0 1px 1px rgba(255, 255, 255, 0.6);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .pencils li {
   display: block;
   float: left;
-  height: 50px;
-  width: 50px;
+  height: 40px;
   text-align: center;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 42px;
+  font-size: 16px;
   color: #fff;
   font-weight: bold;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.26);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 10px;
+  text-transform: uppercase;
 }
 
 .pencils li:first-child {
-  -webkit-border-top-left-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  -webkit-border-top-left-radius: 30px;
+  -webkit-border-bottom-left-radius: 30px;
+  -moz-border-radius-topleft: 30px;
+  -moz-border-radius-bottomleft: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .pencils li:last-child {
-  -webkit-border-top-right-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-  -moz-border-radius-topright: 20px;
-  -moz-border-radius-bottomright: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  -webkit-border-top-right-radius: 30px;
+  -webkit-border-bottom-right-radius: 30px;
+  -moz-border-radius-topright: 30px;
+  -moz-border-radius-bottomright: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   border: 0;
 }
 
@@ -197,18 +200,18 @@ body {
   list-style: none;
   float: right;
   position: absolute;
-  right: 30px;
-  bottom: -95px;
+  right: 74px;
+  bottom: 45px;
 }
 
 .buttons li {
   display: block;
   float: left;
+  margin-left: 20px;
 }
 
 .buttons li a {
   display: block;
-  font-size: 22px;
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
@@ -219,21 +222,61 @@ body {
   background: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
-  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
 }
 
-.icon-footer {
-  position: absolute;
-  left: 30px;
-  bottom: -70px;
-  display: block;
-  font-size: 30px;
-  color: #fff;
-  width: 300px;
+.buttons li a:hover {
+  background: rgba(0, 0, 0, 0.46);
 }
-.icon-footer strong {
-  color: #562a2a;
+
+
+.loading-overlay {
+  width: 1024px;
+  height: 748px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 748px;
+  font-size: 30px;
+  color: #666;
+  display: none;
 }
 
 body.only-standalone .canvas-wrapper { display: none; }
 body.only-standalone .standalone-message { display: block; }
+
+.drawings {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+.drawings li {
+  display: block;
+  float: left;
+  margin: 10px;
+}
+
+.relative-buttons {
+  display: block;
+  margin: 20px;
+}
+.relative-buttons a {
+  display: inline-block;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+}
