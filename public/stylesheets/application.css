@@ -252,7 +252,7 @@ body.only-standalone .standalone-message { display: block; }
 .drawings {
   list-style: none;
   padding: 0;
-  margin: 10px;
+  margin: 20px;
 }
 .drawings li {
   display: block;
@@ -262,7 +262,7 @@ body.only-standalone .standalone-message { display: block; }
 
 .relative-buttons {
   display: block;
-  margin: 20px;
+  margin: 30px;
 }
 .relative-buttons a {
   display: inline-block;

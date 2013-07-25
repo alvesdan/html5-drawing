@@ -15,11 +15,7 @@ class MyApp < Sinatra::Base
   end
   
   get "/drawings" do
-    AWS::S3::DEFAULT_HOST.replace "s3-us-west-2.amazonaws.com"
-    AWS::S3::Base.establish_connection!(
-      :access_key_id     => ENV["AWS_ACCESS_KEY_ID"],
-      :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
-    )
+    connect()
     @drawings = AWS::S3::Bucket.find(ENV["AWS_BUCKET"]).objects
     haml :drawings
   end

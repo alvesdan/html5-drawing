@@ -10,13 +10,17 @@ module UploadHelper
     return file_name
   end
   
-  def upload(file_name)
-    bucket = ENV["AWS_BUCKET"]
+  def connect
     AWS::S3::DEFAULT_HOST.replace "s3-us-west-2.amazonaws.com"
     AWS::S3::Base.establish_connection!(
-      :access_key_id     => ENV["AWS_ACCESS_KEY_ID"],
-      :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
+      :access_key_id => ENV["AWS_ACCESS_KEY_ID"],
+      :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]
     )
+  end
+  
+  def upload(file_name)
+    connect()
+    bucket = ENV["AWS_BUCKET"]
     AWS::S3::S3Object.store(
       "#{file_name}.jpg",
       open("public/temp/#{file_name}.jpg"),
