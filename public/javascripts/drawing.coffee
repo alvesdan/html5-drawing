@@ -120,3 +120,6 @@ jQuery ->
     $("body").addClass("only-standalone")
     $(".wrapper").remove()
     $(".overlay").remove()
+    $("ul.colors").css("left", "50%")
+    $("ul.colors").css("margin-left", "-250px")
+    $("ul.buttons").remove()
