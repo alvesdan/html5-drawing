@@ -6,9 +6,8 @@ html {
 }
 
 body {
-  overflow: hidden;
   font-family: "Open Sans", sans-serif;
-  background: #333;
+  background: url(../images/bg-body.gif);
 }
 
 .wood-brackground {
@@ -31,10 +30,25 @@ body {
   border-radius: 3px;
 }
 
-.standalone-overlay {display:block; position:absolute; left:50%; top:50%; margin-left:-200px; margin-top:-100px; width:400px; height:200px; text-align:center; background:#fff;}
+.circle {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+
+.animated {
+  -webkit-transition: all 0.15s cubic-bezier(0.54, 0.24, 0.35, 0.68);
+  -moz-transition: all 0.15s cubic-bezier(0.54, 0.24, 0.35, 0.68);
+  -o-transition: all 0.15s cubic-bezier(0.54, 0.24, 0.35, 0.68);
+  transition: all 0.15s cubic-bezier(0.54, 0.24, 0.35, 0.68);
+}
+
+.standalone-overlay {display:block; position:absolute; left:50%; top:50%; margin-left:-115px; margin-top:-100px; width:230px; height:200px; text-align:center; background:#fff;}
 .standalone-overlay h2 {font-size:30px; display:block; text-align:center; margin:30px 0 10px;}
 .rotate-overlay {display:block; position:absolute; left:50%; top:50%; margin-left:-100px; margin-top:-80px; width:200px; height:160px; display:none; background:#fff; text-align:center;}
 .rotate-overlay img {margin:30px 0 5px;}
+
+.loading-overlay {display:none; position:absolute; width:60px; height:60px; background:url(../images/loading.gif) #fff no-repeat center center; left:50%; top:50%; margin-left:-30px; margin-top:-30px; text-indent:-2000px;}
 
 .wrapper {width:980px; height:748px; margin:20px auto 0; position:relative; display:none;}
 .wrapper .canvas-wrapper {overflow:hidden; width:980px; height:600px; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px;}
@@ -43,9 +57,32 @@ body {
 .wrapper > ul {margin:0; padding:0; display:block; float:left;}
 .wrapper > ul > li {display:block; float:left;}
 
+.wrapper ul.colors {margin-top:35px; float:right;}
+.wrapper ul.colors li a {display:block; width:50px; height:50px; background:#fff; text-indent:-2000px; border:2px solid #fff; margin:0 3px;}
+.wrapper ul.colors li a.black {background-color:#333;}
+.wrapper ul.colors li a.blue {background-color:#66afec;}
+.wrapper ul.colors li a.green {background-color:#91c91d;}
+.wrapper ul.colors li a.yellow {background-color:#ffbc00;}
+.wrapper ul.colors li a.red {background-color:#bb1d1d;}
+.wrapper ul.colors li a.active {width:70px; height:70px; margin-top:-10px;}
+
+.wrapper ul.pencils {margin:35px 20px 0 0; float:right;}
+.wrapper ul.pencils li a {display:block; width:50px; height:50px; background:url(../images/icon-pencil.png) #666 no-repeat center center; border:2px solid #fff; text-indent:-2000px; margin:0 3px; background-size:70% 70%;}
+.wrapper ul.pencils li a.small {width:40px; height:40px; margin-top:5px;}
+.wrapper ul.pencils li a.normal {}
+.wrapper ul.pencils li a.big {width:60px; height:60px; margin-top:-5px;}
+.wrapper ul.pencils li a.active {background-color:#333;}
+
+.wrapper ul.buttons {margin:45px 0 0 5px;}
+.wrapper ul.buttons li a {font-size:18px; margin-right:20px; display:block; color:#fff; padding:5px 10px; background:#666; border:2px solid #fff; text-decoration:none;}
 
 body.standalone.ipad-device.horizontal .wrapper {display:block;}
 body.standalone.ipad-device .standalone-overlay {display:none;}
 
 body.standalone.ipad-device .rotate-overlay {display:block;}
 body.standalone.ipad-device.horizontal .rotate-overlay {display:none;}
+
+.gallery-header {display:block; margin:20px 30px;}
+.gallery-header a {color:#fff;}
+ul.drawings {list-style:none; margin:20px; padding:0;}
+ul.drawings li {display:block; float:left; margin:10px;}

@@ -5,28 +5,30 @@
   
   %ul.buttons
     %li
-      %a{ class: "clear-drawing" } Reset
+      %a{ class: "clear-drawing circle" } Clear All
     %li
-      %a{ class: "save-image-button" } Save
+      %a{ class: "save-image-button circle" } Save
     %li
-      %a{ class: "drawings-gallery" } Gallery
+      %a{ class: "drawings-gallery circle", href: "/drawings" } Other Drawings
 
   %ul.colors
     %li
-      %a{ class: "white", data: {color: "#ffffff"} } White
+      %a{ class: "white circle animated", data: {color: "#ffffff"} } White
     %li
-      %a{ class: "blue", data: {color: "#66afec"} } Blue
+      %a{ class: "black circle animated", data: {color: "#333333"} } Black
     %li
-      %a{ class: "red", data: {color: "#bb1d1d"} } Red
+      %a{ class: "blue circle animated", data: {color: "#66afec"} } Blue
     %li
-      %a{ class: "green active", data: {color: "#91c91d"} } Green
+      %a{ class: "red circle animated", data: {color: "#bb1d1d"} } Red
     %li
-      %a{ class: "yellow", data: {color: "#ffbc00"} } Yellow
+      %a{ class: "green circle animated active", data: {color: "#91c91d"} } Green
     %li
-      %a{ class: "black", data: {color: "#333333"} } Black
+      %a{ class: "yellow circle animated", data: {color: "#ffbc00"} } Yellow
     
   %ul.pencils
     %li
-      %a{ class: "small active", data: { size: 15} } Small
+      %a{ class: "small circle active", data: { size: 15} } Small
     %li
-      %a{ class: "big", data: { size: 30} } Large
+      %a{ class: "normal circle", data: { size: 30} } Normal
+    %li
+      %a{ class: "big circle", data: { size: 45} } Big

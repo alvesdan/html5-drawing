@@ -1,14 +1,16 @@
-.relative-buttons
-  %a{ href: "/" } &larr; Create your drawing
+.gallery-header
+  %a{ href: "/" }
+    %i{ class: "icon-arrow-left icon-white" }
+    Create your own drawing
 
 %ul.drawings
   - @drawings.each do |drawing|
     %li
-      %img{ src: drawing.url(authenticated: false), width: 212, class: "img-polaroid" }
+      %img{ src: drawing.url(authenticated: false), width: 220, class: "rounded" }
       
 :javascript
   $(function(){
-    $("body").css("overflow", "normal");
-    $(".overlay").remove();
+    $(".standalone-overlay").remove();
+    $(".rotate-overlay").remove();
   });
   

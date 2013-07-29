@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title HTML5 Drawing
+    %title Drawing
     %meta{ name: "viewport", content: "initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" }
     %meta{ name: "apple-mobile-web-app-capable", content: "yes" }
     %link{ rel: "stylesheet", href: "/stylesheets/bootstrap.min.css" }
@@ -17,13 +17,14 @@
     = yield
     
     .standalone-overlay.shadow.rounded
-      %h2 html 5 <strong>drawing</strong>
+      %h2
+        %img{ src: "/images/icon-message.png" }
       %p Add to your <strong>Home Screen</strong><br /> and start drawing
       
     .rotate-overlay.rounded.shadow
       .message
         %img{ src: "/images/icon-rotate-ipad.png" }
     
-    .loading-overlay.rounded
+    .loading-overlay.rounded.shadow
       %p
         Please wait...

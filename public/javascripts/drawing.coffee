@@ -27,26 +27,38 @@ class Drawing
     window.addEventListener "orientationchange", (event) =>
       @handle_orientation_change(event)
       
-    # $(".colors li").click (event) =>
-    #   color = $(event.target).attr("data-color")
-    #   @context.strokeStyle = color
-    #   $(".colors li").removeClass("active")
-    #   $(event.target).addClass("active")
-    # 
-    # $(".pencils li").click (event) =>
-    #   width = $(event.target).attr("data-size")
-    #   @context.lineWidth = width
-    #   $(".pencils li").removeClass("active")
-    #   $(event.target).addClass("active")
-    # 
-    # $(".clear-drawing").click (event) =>
-    #  @context.fillStyle = "rgba(255, 255, 255, 1)"
-    #  @context.fillRect(0, 0, 980, 600)
-    # 
-    # $(".save-image-button").click (event) =>
-    #   event.preventDefault()
-    #   @save_image()
-    #   false
+    $(".colors li a").click (event) =>
+      event.preventDefault()
+      color = $(event.target).attr("data-color")
+      @context.strokeStyle = color
+      $(".colors li a").removeClass("active")
+      $(event.target).addClass("active")
+    
+    $(".pencils li a").click (event) =>
+      event.preventDefault()
+      width = $(event.target).attr("data-size")
+      @context.lineWidth = width
+      $(".pencils li a").removeClass("active")
+      $(event.target).addClass("active")
+    
+    $(".clear-drawing").click (event) =>
+      event.preventDefault()
+      answer = confirm("All your drawing will be erased, are you sure?")
+      if (answer == true)
+        @context.fillStyle = "rgba(255, 255, 255, 1)"
+        @context.fillRect(0, 0, 980, 600)
+
+    $(".save-image-button").click (event) =>
+      event.preventDefault()
+      answer = confirm("Your drawing will be saved but you can no longer edit it, you finished it?")
+      if (answer == true)
+        $(".loading-overlay").show()
+        @save_image()
+      false
+    
+    $(".drawings-gallery").click (event) =>
+      event.preventDefault()
+      window.location.href = "/drawings"
   
   handle_start: (event, element) ->
     @x = event.touches[0].clientX - @x_offset
@@ -86,7 +98,7 @@ class Drawing
     else
       $("body").addClass("horizontal")
   
-  save_image: ->
+  save_image: ->    
     image = @canvas.toDataURL()
     $(".loading-overlay").css("display", "block")
     $.ajax
@@ -98,7 +110,8 @@ class Drawing
       success: (data, textStatus, jqXHR) ->
         window.location.href = "/drawings"
       error: (jqXHR, textStatus, errorThrown) ->
-        console.log("error in upload")
+        $(".loading-overlay").hide()
+        alert("Sorry, some error ocurred while we were saving your drawing. Please, try again.")
     false
       
     
