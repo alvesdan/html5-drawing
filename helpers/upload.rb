@@ -4,9 +4,7 @@ module UploadHelper
     image_data = image_data.split(",")
     image = Base64.decode64(image_data[1])
     file_name = "#{DateTime.now.strftime('%Y%m%d%H%M%S%L')}"
-    image_file = File.open("public/temp/#{file_name}.jpg", "w") do |f|
-      f.write image
-    end
+    image_file = File.open("public/temp/#{file_name}.jpg", "w") { |f| f.write image }
     return file_name
   end
   
@@ -29,7 +27,5 @@ module UploadHelper
     )
     return file_name
   end
-  
-  
   
 end

@@ -1,31 +1,32 @@
-.wrapper
-  .canvas-wrapper.shadow
-    %canvas{ id: "canvas-drawing", width: 980, height: 600 }
+.wrapper.rounded
   
-%ul.buttons
-  %li
-    %a{ class: "clear-drawing" } Reset
-  %li
-    %a{ class: "save-image-button" } Save
-  %li
-    %a{ class: "drawings-gallery" } Gallery
+  .canvas-wrapper.shadow.rounded
+    %canvas.rounded{ id: "canvas-drawing", width: 980, height: 600 }
+  
+  %ul.buttons
+    %li
+      %a{ class: "clear-drawing" } Reset
+    %li
+      %a{ class: "save-image-button" } Save
+    %li
+      %a{ class: "drawings-gallery" } Gallery
 
-%ul.colors
-  %li{ class: "white", data: {color: "#ffffff"} }
-    Eraser
-  %li{ class: "blue", data: {color: "#66afec"} }
-    Blue
-  %li{ class: "red", data: {color: "#bb1d1d"} }
-    Red
-  %li{ class: "green active", data: {color: "#91c91d"} }
-    Green
-  %li{ class: "yellow", data: {color: "#ffbc00"} }
-    Yellow
-  %li{ class: "black", data: {color: "#333333"} }
-    Black
+  %ul.colors
+    %li
+      %a{ class: "white", data: {color: "#ffffff"} } White
+    %li
+      %a{ class: "blue", data: {color: "#66afec"} } Blue
+    %li
+      %a{ class: "red", data: {color: "#bb1d1d"} } Red
+    %li
+      %a{ class: "green active", data: {color: "#91c91d"} } Green
+    %li
+      %a{ class: "yellow", data: {color: "#ffbc00"} } Yellow
+    %li
+      %a{ class: "black", data: {color: "#333333"} } Black
     
-%ul.pencils
-  %li{ class: "small active", data: { size: 15} }
-    Small
-  %li{ class: "big", data: { size: 30} }
-    Large
+  %ul.pencils
+    %li
+      %a{ class: "small active", data: { size: 15} } Small
+    %li
+      %a{ class: "big", data: { size: 30} } Large

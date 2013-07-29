@@ -27,29 +27,26 @@ class Drawing
     window.addEventListener "orientationchange", (event) =>
       @handle_orientation_change(event)
       
-    $(".colors li").click (event) =>
-      color = $(event.target).attr("data-color")
-      @context.strokeStyle = color
-      $(".colors li").removeClass("active")
-      $(event.target).addClass("active")
-    
-    $(".pencils li").click (event) =>
-      width = $(event.target).attr("data-size")
-      @context.lineWidth = width
-      $(".pencils li").removeClass("active")
-      $(event.target).addClass("active")
-    
-    $(".clear-drawing").click (event) =>
-     @context.fillStyle = "rgba(255, 255, 255, 1)"
-     @context.fillRect(0, 0, 980, 600)
-    
-    $(".save-image-button").click (event) =>
-      event.preventDefault()
-      @save_image()
-      false
-    
-    $(".drawings-gallery").click ->
-      window.location.href = "/drawings"
+    # $(".colors li").click (event) =>
+    #   color = $(event.target).attr("data-color")
+    #   @context.strokeStyle = color
+    #   $(".colors li").removeClass("active")
+    #   $(event.target).addClass("active")
+    # 
+    # $(".pencils li").click (event) =>
+    #   width = $(event.target).attr("data-size")
+    #   @context.lineWidth = width
+    #   $(".pencils li").removeClass("active")
+    #   $(event.target).addClass("active")
+    # 
+    # $(".clear-drawing").click (event) =>
+    #  @context.fillStyle = "rgba(255, 255, 255, 1)"
+    #  @context.fillRect(0, 0, 980, 600)
+    # 
+    # $(".save-image-button").click (event) =>
+    #   event.preventDefault()
+    #   @save_image()
+    #   false
   
   handle_start: (event, element) ->
     @x = event.touches[0].clientX - @x_offset
@@ -85,17 +82,9 @@ class Drawing
   
   handle_orientation_change: ->
     if (window.orientation == 0 || window.orientation == 180)
-      $(".overlay").show()
-      $(".wrapper").hide()
-      $("ul.colors").hide()
-      #$("ul.pencils").hide()
-      $("ul.buttons").hide()
+      $("body").removeClass("horizontal")
     else
-      $(".overlay").hide()
-      $(".wrapper").show()
-      $("ul.colors").show()
-      #$("ul.pencils").show()
-      $("ul.buttons").show()
+      $("body").addClass("horizontal")
   
   save_image: ->
     image = @canvas.toDataURL()
@@ -109,17 +98,12 @@ class Drawing
       success: (data, textStatus, jqXHR) ->
         window.location.href = "/drawings"
       error: (jqXHR, textStatus, errorThrown) ->
-        $(".loading-overlay").hide()
+        console.log("error in upload")
     false
       
     
 jQuery ->
   if ($(".canvas-wrapper").length)
     drawing = new Drawing()
-  if (!window.navigator.standalone)
-    $("body").addClass("only-standalone")
-    $(".wrapper").remove()
-    $(".overlay").remove()
-    $("ul.colors").css("left", "50%")
-    $("ul.colors").css("margin-left", "-250px")
-    $("ul.buttons").remove()
+  if (window.navigator.standalone)
+    $("body").addClass("standalone")

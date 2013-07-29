@@ -16,14 +16,14 @@
   %body
     = yield
     
-    .standalone-message.shadow
+    .standalone-overlay.shadow.rounded
       %h2 html 5 <strong>drawing</strong>
       %p Add to your <strong>Home Screen</strong><br /> and start drawing
-    .overlay
-      .rotate-message.shadow
+      
+    .rotate-overlay.rounded.shadow
+      .message
         %img{ src: "/images/icon-rotate-ipad.png" }
-        %br
-        Please <strong>rotate</strong> you iPad
     
-    .loading-overlay
-      Please wait, we are saving your drawing...
+    .loading-overlay.rounded
+      %p
+        Please wait...
